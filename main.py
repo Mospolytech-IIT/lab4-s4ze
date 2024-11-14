@@ -40,7 +40,7 @@ def test_functions():
         print(string_to_int_with_better_exception_handling("17"))
         print(string_to_int_with_better_exception_handling("seventeen")) # will cause exception
     except Exception as e:
-            print(e)
+        print(e)
     # Задание 4
     print("Задание 4")
 
