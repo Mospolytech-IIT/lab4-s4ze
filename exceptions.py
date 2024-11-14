@@ -1,15 +1,15 @@
 """Module for testing exceptions"""
 
 def string_to_int(number):
-    """Converts string number value to int"""
+    """Exercise 1. Converts string number value to int"""
     return int(number)
 
 def divide(dividend, divider):
-    """Divides two numbers"""
+    """Exercise 1. Divides two numbers"""
     return dividend / divider
 
 def string_to_int_with_exception_handling(number):
-    """Converts string number value to int. If not, displays the error"""
+    """Exercise 2. Converts string number value to int. If not, displays the error"""
     try:
         result = int(number)
     except Exception:
@@ -17,7 +17,7 @@ def string_to_int_with_exception_handling(number):
     return result
 
 def string_to_int_with_better_exception_handling(number):
-    """Converts string number value to int. If not, displays and handles the error"""
+    """Exercise 3. Converts string number value to int. If not, displays and handles the error"""
     try:
         number = int(number)
     except Exception:
@@ -30,7 +30,8 @@ def string_to_int_with_better_exception_handling(number):
     return result
 
 def string_to_int_with_better_exception_type_handling(number):
-    """Converts string number value to int. If not, displays and handles specific errors"""
+    """Exercise 4. Converts string number value to int. If not, displays and handles specific\
+errors"""
     try:
         number = int(number)
     except ValueError:
@@ -48,7 +49,7 @@ def string_to_int_with_better_exception_type_handling(number):
     return result
 
 def divide_with_better_exception_type_handling(dividend, divider):
-    """Divides two numbers. If not, displays and handles specifics errors"""
+    """Exercise 4. Divides two numbers. If not, displays and handles specifics errors"""
     quotient = ""
     try:
         quotient = dividend / divider
@@ -67,7 +68,7 @@ def divide_with_better_exception_type_handling(dividend, divider):
     return result
 
 def check_age(age):
-    """Returns result of checking age for restrictions"""
+    """Exercise 5. Returns result of checking age for restrictions"""
     try:
         if age < 18:
             age = False
@@ -88,8 +89,17 @@ def check_age(age):
         result = not isinstance(age, bool)
     return result
 
+class UnderageError(Exception):
+    """Exercise 6. Exception for age under 18"""
+
+class OverageError(Exception):
+    """Exercise 6. Exception for age above 70"""
+
+class ThirtyYearsError(Exception):
+    """Exercise 6. Exception for age 30"""
+
 def check_age_with_custom_exceptions(age):
-    """Returns result of checking age for restrictions"""
+    """Exercise 7. Returns result of checking age for restrictions"""
     try:
         if age < 18:
             age = False
@@ -110,18 +120,17 @@ def check_age_with_custom_exceptions(age):
         result = not isinstance(age, bool)
     return result
 
-
-class UnderageError(Exception):
-    """Exception for age under 18"""
-
-class OverageError(Exception):
-    """Exception for age above 70"""
-
-class ThirtyYearsError(Exception):
-    """Exception for age 30"""
+def read_file(file_path):
+    """Exercise 8. Returns content of file from path"""
+    try:
+        with open(file_path, 'r', encoding="utf-8") as file:
+            return file.read()
+    except FileNotFoundError as e:
+        print(e)
+        return ""
 
 def get_element_from_list(index):
-    """Returns element from list by index"""
+    """Exercise 8. Returns element from list by index"""
     llist = [1, 2, 3]
     element = 0
     try:
@@ -131,20 +140,10 @@ def get_element_from_list(index):
     return element
 
 def get_value_from_dict(key):
-    """Returns value from dictionary by key"""
+    """Exercise 8. Returns value from dictionary by key"""
     ddict = {"name": "Alice", "age": 30}
     try:
         return ddict[key]
-        #value = get_value_from_dict(my_dict, "address")
     except KeyError as e:
-        print(e)
-    return ""
-
-def read_file(file_path):
-    """Returns content of file from path"""
-    try:
-        with open(file_path, 'r', encoding="utf-8") as file:
-            return file.read()
-    except FileNotFoundError as e:
         print(e)
         return ""
